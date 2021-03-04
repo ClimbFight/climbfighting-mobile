@@ -35,6 +35,12 @@
   "jest": {
     "preset": "react-native"
   },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "airbnb"
+    ]
+  },
   "lint-staged": {
     "**/*.{json,yaml,md}": "prettier --check",
     "**/*.{js,jsx}": "eslint"
