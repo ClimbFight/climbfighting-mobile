@@ -1,12 +1,10 @@
-import React from 'react';
-import {View, Text} from 'react-native';
+import React from 'react'
+import {View, Text} from 'react-native'
 
-const Alaram = () => {
-  return (
+const Alaram = () => (
     <View>
-      <Text>Alaram</Text>
+        <Text>Alaram</Text>
     </View>
-  );
-};
+)
 
-export default Alaram;
+export default Alaram

@@ -1,12 +1,10 @@
-import React from 'react';
-import {View, Text} from 'react-native';
+import React from 'react'
+import {View, Text} from 'react-native'
 
-const MyPage = () => {
-  return (
+const MyPage = () => (
     <View>
-      <Text>MyPage</Text>
+        <Text>MyPage</Text>
     </View>
-  );
-};
+)
 
-export default MyPage;
+export default MyPage

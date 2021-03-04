@@ -1,20 +1,18 @@
-import React, {Component} from 'react';
-import {Text, View} from 'react-native';
+import React, {useEffect} from 'react'
+import {Text, View} from 'react-native'
 
-class Loading extends Component {
-  componentDidMount() {
-    setTimeout(() => {
-      this.props.navigation.navigate('auth');
-    }, 1000);
-  }
+const Loading = ({navigation}) => {
+    useEffect(() => {
+        setTimeout(() => {
+            navigation.navigate('auth')
+        }, 1000)
+    }, [])
 
-  render() {
     return (
-      <View>
-        <Text>Loading</Text>
-      </View>
-    );
-  }
+        <View>
+            <Text>Loading</Text>
+        </View>
+    )
 }
 
-export default Loading;
+export default Loading

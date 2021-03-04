@@ -1,12 +1,10 @@
-import React from 'react';
-import {View, Text} from 'react-native';
+import React from 'react'
+import {View, Text} from 'react-native'
 
-const Equip = () => {
-  return (
+const Equip = () => (
     <View>
-      <Text>Equipment</Text>
+        <Text>Equipment</Text>
     </View>
-  );
-};
+)
 
-export default Equip;
+export default Equip
