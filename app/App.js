@@ -5,11 +5,11 @@
  */
 
 import React from 'react';
-import { createAppContainer, createSwitchNavigator } from "react-navigation";
+import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 
-import Loading from './screens/Loading'
-import AuthNavigator from './screens/auth/AuthNavigator'
-import HomeNavigator from './screens/home/HomeNavigator'
+import Loading from './screens/Loading';
+import AuthNavigator from './screens/auth/AuthNavigator';
+import HomeNavigator from './screens/home/HomeNavigator';
 
 const AppNavigator = createSwitchNavigator(
   {
@@ -18,8 +18,8 @@ const AppNavigator = createSwitchNavigator(
     home: HomeNavigator,
   },
   {
-    initialRouteName : 'loading'
-  }
+    initialRouteName: 'loading',
+  },
 );
 
 export default createAppContainer(AppNavigator);
