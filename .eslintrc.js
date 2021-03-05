@@ -7,8 +7,9 @@ module.exports = {
         'plugin:react/recommended',
         'airbnb',
         'prettier',
-        'plugin:prettier/recommended',
         'eslint-config-prettier',
+        'plugin:styled-components-a11y/recommended',
+        'plugin:prettier/recommended',
     ],
     parserOptions: {
         ecmaFeatures: {
