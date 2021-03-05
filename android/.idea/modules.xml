@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/climbfighting_mobile.iml" filepath="$PROJECT_DIR$/.idea/modules/climbfighting_mobile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/climbfighting_mobile.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/climbfighting_mobile.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1437941610/climbfighting_mobile.react-native-gesture-handler.iml" filepath="$PROJECT_DIR$/.idea/modules/1437941610/climbfighting_mobile.react-native-gesture-handler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-500439950/climbfighting_mobile.react-native-reanimated.iml" filepath="$PROJECT_DIR$/.idea/modules/-500439950/climbfighting_mobile.react-native-reanimated.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-269647573/climbfighting_mobile.react-native-screens.iml" filepath="$PROJECT_DIR$/.idea/modules/-269647573/climbfighting_mobile.react-native-screens.iml" />
+    </modules>
+  </component>
+</project>
