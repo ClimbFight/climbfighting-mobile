@@ -17,7 +17,7 @@ module.exports = {
         ecmaVersion: 12,
         sourceType: 'module',
     },
-    plugins: ['react', 'prettier'],
+    plugins: ['react', 'prettier', 'styled-components-a11y'],
     rules: {
         'react/jsx-filename-extension': [
             1,
