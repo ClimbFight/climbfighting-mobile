@@ -1,9 +1,16 @@
 import React from 'react'
 import {View, Text} from 'react-native'
 import styled from 'styled-components'
+import bdImg from './images/start_img.jpg'
 
 const Container = styled.View`
     flex: 1;
+`
+
+const Cover = styled.ImageBackground`
+    flex: 1;
+    resize-mode: cover;
+    justify-content: center;
 `
 
 const LoginContainer = styled.View`
@@ -33,31 +40,33 @@ const LoginHelpContainer = styled.View`
 
 const Login = ({navigation}) => (
     <Container>
-        <View style={{height: '50%'}} />
-        <LoginContainer>
-            <LoginButton>
-                <Text>Google 로그인</Text>
-            </LoginButton>
+        <Cover source={bdImg}>
+            <View style={{height: '50%'}} />
+            <LoginContainer>
+                <LoginButton>
+                    <Text>Google 로그인</Text>
+                </LoginButton>
 
-            <LoginButton>
-                <Text>네이버 로그인</Text>
-            </LoginButton>
+                <LoginButton>
+                    <Text>네이버 로그인</Text>
+                </LoginButton>
 
-            <LoginButton>
-                <Text>이메일 로그인</Text>
-            </LoginButton>
+                <LoginButton>
+                    <Text>이메일 로그인</Text>
+                </LoginButton>
 
-            <LoginHelpContainer>
-                <ExtraInfoButton
-                    onPress={() => navigation.navigate('extraInfo')}>
-                    <Text>이메일 회원가입</Text>
-                </ExtraInfoButton>
+                <LoginHelpContainer>
+                    <ExtraInfoButton
+                        onPress={() => navigation.navigate('extraInfo')}>
+                        <Text>이메일 회원가입</Text>
+                    </ExtraInfoButton>
 
-                <ExtraInfoButton>
-                    <Text>ID/PW 찾기</Text>
-                </ExtraInfoButton>
-            </LoginHelpContainer>
-        </LoginContainer>
+                    <ExtraInfoButton>
+                        <Text>ID/PW 찾기</Text>
+                    </ExtraInfoButton>
+                </LoginHelpContainer>
+            </LoginContainer>
+        </Cover>
     </Container>
 )
 
