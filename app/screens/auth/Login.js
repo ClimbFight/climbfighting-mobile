@@ -1,7 +1,6 @@
-import React, {useEffect, useRef, useState} from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
-import useMountedState from '../../hooks/useMountedState'
-import {marine} from '../../styles/variables'
+import {globalFont, colorTheme} from '../../styles/variables'
 import bdImg from './images/start_img.jpg'
 import LoginButtonLayer from './LoginButtonLayer'
 
@@ -21,18 +20,16 @@ const TextBox = styled.View`
 `
 
 const TitleText = styled.Text`
-    /*font-family: AppleSDGothicNeo;*/
+    ${globalFont.ko_light}
     font-size: 32px;
-    font-weight: 300;
     font-style: normal;
     color: #ffffff;
 `
 
 const SubTitleText = styled.Text`
+    ${globalFont.ko_light}
     margin: 21px 0 50px;
-    /* font-family: AppleSDGothicNeo; */
     font-size: 16px;
-    font-weight: 300;
     width: 100%;
     font-style: normal;
     color: #ffffff;
@@ -47,13 +44,12 @@ const LoginButton = styled.TouchableOpacity`
     padding: 18px 103px;
     border-radius: 27px;
     text-align: center;
-    background-color: ${marine};
+    background-color: ${colorTheme['--marine']};
 `
 
 const LoginButtonText = styled.Text`
-    /*font-family: AppleSDGothicNeo;*/
+    ${globalFont.ko_bold}
     font-size: 16px;
-    font-weight: bold;
     font-style: normal;
     text-align: center;
     color: #ffffff;
