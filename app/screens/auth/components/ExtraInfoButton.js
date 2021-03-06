@@ -18,7 +18,7 @@ const ExtraInfoText = styled.Text`
 
 const ExtraInfoButton = ({to, text, navigation}) => {
     return (
-        <ExtraInfoButtonBox onPress={() => navigation.navigate('extraInfo')}>
+        <ExtraInfoButtonBox onPress={() => navigation.navigate(to)}>
             <ExtraInfoText>{text}</ExtraInfoText>
         </ExtraInfoButtonBox>
     )
