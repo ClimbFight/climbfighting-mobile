@@ -1,6 +1,3 @@
-export const grey1 = '#343a40'
-export const marine = '#07cfcc'
-
 export const colorTheme = {
     '--grey-1': '#343a40',
     '--grey-2': '#495057',
