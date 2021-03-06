@@ -72,6 +72,8 @@ const Login = ({navigation}) => {
 
     const openLoginLayer = () => setIsShow(!isShow)
 
+    const closeFn = () => setIsShow(false)
+
     return (
         <Container>
             <Cover source={bdImg}>
@@ -88,7 +90,11 @@ const Login = ({navigation}) => {
                         <LoginButtonText>시작하기</LoginButtonText>
                     </LoginButton>
                 </LoginButtonBox>
-                <LoginButtonLayer isShow={isShow} navigation={navigation} />
+                <LoginButtonLayer
+                    isShow={isShow}
+                    navigation={navigation}
+                    closeFn={closeFn}
+                />
             </Cover>
         </Container>
     )

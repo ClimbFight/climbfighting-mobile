@@ -1,6 +1,7 @@
 import React from 'react'
 import {Text} from 'react-native'
 import styled from 'styled-components'
+import HalfLayer from '../common/HalfLayer'
 
 const LoginContainer = styled.View`
     align-items: center;
@@ -27,36 +28,34 @@ const LoginHelpContainer = styled.View`
     flex-direction: row;
 `
 
-const LoginButtonLayer = ({isShow, navigation}) => {
-    if (!isShow) {
-        return null
-    }
-
+const LoginButtonLayer = ({isShow, closeFn, navigation}) => {
     return (
-        <LoginContainer>
-            <LoginButton>
-                <Text>Google 로그인</Text>
-            </LoginButton>
+        <HalfLayer isShow={isShow} closeFn={closeFn}>
+            <LoginContainer>
+                <LoginButton>
+                    <Text>Google 로그인</Text>
+                </LoginButton>
 
-            <LoginButton>
-                <Text>네이버 로그인</Text>
-            </LoginButton>
+                <LoginButton>
+                    <Text>네이버 로그인</Text>
+                </LoginButton>
 
-            <LoginButton>
-                <Text>이메일 로그인</Text>
-            </LoginButton>
+                <LoginButton>
+                    <Text>이메일 로그인</Text>
+                </LoginButton>
 
-            <LoginHelpContainer>
-                <ExtraInfoButton
-                    onPress={() => navigation.navigate('extraInfo')}>
-                    <Text>이메일 회원가입</Text>
-                </ExtraInfoButton>
+                <LoginHelpContainer>
+                    <ExtraInfoButton
+                        onPress={() => navigation.navigate('extraInfo')}>
+                        <Text>이메일 회원가입</Text>
+                    </ExtraInfoButton>
 
-                <ExtraInfoButton>
-                    <Text>ID/PW 찾기</Text>
-                </ExtraInfoButton>
-            </LoginHelpContainer>
-        </LoginContainer>
+                    <ExtraInfoButton>
+                        <Text>ID/PW 찾기</Text>
+                    </ExtraInfoButton>
+                </LoginHelpContainer>
+            </LoginContainer>
+        </HalfLayer>
     )
 }
 
