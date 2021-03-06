@@ -1,67 +1,64 @@
+import React from 'react'
+import {View, Text} from 'react-native'
+import styled from 'styled-components'
 
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+const Container = styled.View`
+    flex: 1;
+`
 
-class Login extends React.Component {        
-    navigation = this.props.navigation;
-    
+const LoginContainer = styled.View`
+    align-items: center;
+    margin-bottom: 50px;
+`
 
-    render(){
-        return(
-            <View style={styles.container}>  
-                <View style={{ height: '50%' }} />  
-                <View style={styles.loginContainer}>            
-                    <TouchableOpacity style={styles.loginButton}>
-                        <Text>Google 로그인</Text>
-                    </TouchableOpacity>
+const LoginButton = styled.TouchableOpacity`
+    width: 80%;
+    height: 15%;
+    border-width: 1;
+    border-color: black;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+`
 
-                    <TouchableOpacity style={styles.loginButton}>
-                        <Text>네이버 로그인</Text>
-                    </TouchableOpacity>
+const ExtraInfoButton = styled.TouchableOpacity`
+    width: 50%;
+    align-items: center;
+`
 
-                    <TouchableOpacity style={styles.loginButton}>
-                        <Text>이메일 로그인</Text>
-                    </TouchableOpacity>
+const LoginHelpContainer = styled.View`
+    flex: 1;
+    flex-direction: row;
+`
 
-                    <View style={styles.loginHelpContainer}>
-                        <TouchableOpacity style={{ width: '50%', alignItems: 'center' }} onPress={ () => this.navigation.navigate('extraInfo') }>
-                            <Text>이메일 회원가입</Text>        
-                        </TouchableOpacity>
+const Login = ({navigation}) => (
+    <Container>
+        <View style={{height: '50%'}} />
+        <LoginContainer>
+            <LoginButton>
+                <Text>Google 로그인</Text>
+            </LoginButton>
 
-                        <TouchableOpacity style={{ width: '50%', alignItems: 'center' }}>
-                            <Text>ID/PW 찾기</Text>
-                        </TouchableOpacity>                                
-                    </View>
-                </View>         
-            </View> 
-        );
-    }      
-};
+            <LoginButton>
+                <Text>네이버 로그인</Text>
+            </LoginButton>
 
-const styles = StyleSheet.create({
-    container : {
-        flex: 1        
-    },
+            <LoginButton>
+                <Text>이메일 로그인</Text>
+            </LoginButton>
 
-    loginContainer: {                                                   
-        alignItems: 'center',
-        marginBottom: 50        
-    },
+            <LoginHelpContainer>
+                <ExtraInfoButton
+                    onPress={() => navigation.navigate('extraInfo')}>
+                    <Text>이메일 회원가입</Text>
+                </ExtraInfoButton>
 
-    loginButton: {      
-        width: '80%',        
-        height: '15%',  
-        borderWidth: 1,
-        borderColor: 'black',                
-        alignItems: 'center',
-        justifyContent: 'center',
-        margin: 10
-    },
+                <ExtraInfoButton>
+                    <Text>ID/PW 찾기</Text>
+                </ExtraInfoButton>
+            </LoginHelpContainer>
+        </LoginContainer>
+    </Container>
+)
 
-    loginHelpContainer: {
-        flex: 1,
-        flexDirection: 'row',        
-    }
-});
-
-export default Login;
+export default Login

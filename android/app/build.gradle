@@ -143,14 +143,22 @@ android {
             include "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
         }
     }
-    signingConfigs {
+    signingConfigs{
         debug {
-            storeFile file('debug.keystore')
-            storePassword 'android'
-            keyAlias 'androiddebugkey'
-            keyPassword 'android'
+            storeFile file(SIGNED_STORE_FILE)
+            storePassword SIGNED_STORE_PASSWORD
+            keyAlias SIGNED_KEY_ALIAS
+            keyPassword SIGNED_KEY_PASSWORD
         }
     }
+    // signingConfigs {
+    //     debug {
+    //         storeFile file('debug.keystore')
+    //         storePassword '112911'
+    //         keyAlias 'debugkey'
+    //         keyPassword '112911'
+    //     }
+    // }
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
