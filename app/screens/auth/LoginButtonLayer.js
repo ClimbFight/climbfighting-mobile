@@ -1,5 +1,4 @@
 import React from 'react'
-import {Text} from 'react-native'
 import styled from 'styled-components'
 import HalfLayer from '../common/HalfLayer'
 import LayerHeader from '../common/layer/LayerHeader'
@@ -8,15 +7,11 @@ import LoginButton from './components/LoginButton'
 import googleLogo from './images/google-icon.png'
 import naverLogo from './images/naver-icon.png'
 import emailIcon from './images/email-icon.png'
+import ExtraInfoButton from './components/ExtraInfoButton'
 
 const LoginContainer = styled.View`
     align-items: center;
-    margin-bottom: 50px;
-`
-
-const ExtraInfoButton = styled.TouchableOpacity`
-    width: 50%;
-    align-items: center;
+    margin-bottom: 32px;
 `
 
 const LoginHelpContainer = styled.View`
@@ -35,13 +30,15 @@ const LoginButtonLayer = ({isShow, closeFn, navigation}) => {
 
                 <LoginHelpContainer>
                     <ExtraInfoButton
-                        onPress={() => navigation.navigate('extraInfo')}>
-                        <Text>이메일 회원가입</Text>
-                    </ExtraInfoButton>
-
-                    <ExtraInfoButton>
-                        <Text>ID/PW 찾기</Text>
-                    </ExtraInfoButton>
+                        to="extraInfo"
+                        text="이메일 회원가입"
+                        navigation={navigation}
+                    />
+                    <ExtraInfoButton
+                        to="extraInfo"
+                        text="ID/PW 찾기"
+                        navigation={navigation}
+                    />
                 </LoginHelpContainer>
             </LoginContainer>
         </HalfLayer>
