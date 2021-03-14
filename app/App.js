@@ -3,12 +3,14 @@
  * @format
  * @flow strict-local
  */
-
+import React from 'react'
 import {createAppContainer, createSwitchNavigator} from 'react-navigation'
 
+import {ThemeProvider} from 'styled-components'
 import Loading from './screens/Loading'
 import AuthNavigator from './screens/auth/AuthNavigator'
 import HomeNavigator from './screens/home/HomeNavigator'
+import theme from './styles/theme'
 
 const AppNavigator = createSwitchNavigator(
     {
@@ -21,4 +23,14 @@ const AppNavigator = createSwitchNavigator(
     },
 )
 
-export default createAppContainer(AppNavigator)
+const App = () => {
+    const AppContainer = createAppContainer(AppNavigator)
+
+    return (
+        <ThemeProvider theme={theme}>
+            <AppContainer />
+        </ThemeProvider>
+    )
+}
+
+export default App
