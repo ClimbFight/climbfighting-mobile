@@ -2,12 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import cancelImage from './images/common-popup-cancel.png'
 
-const Wrapper = styled.View`
+const HeaderBox = styled.View`
     width: 100%;
+    height: 42px;
+    margin-top: 14px;
+    margin-bottom: 23px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 11px 0 48px 0;
     position: relative;
 `
 
@@ -22,8 +24,7 @@ const TitleText = styled.Text`
 const CloseButton = styled.TouchableOpacity`
     padding: ${({theme}) => theme.paddings.xl};
     position: absolute;
-    right: 0;
-    bottom: ${({theme}) => `-${theme.verticalInterval.xl}`};
+    right: 0px;
 `
 
 const CloseImage = styled.Image`
@@ -33,14 +34,14 @@ const CloseImage = styled.Image`
 
 const LayerHeader = ({title, closeFn, closeBtn = true}) => {
     return (
-        <Wrapper>
+        <HeaderBox>
             <TitleText>{title}</TitleText>
             {closeBtn && (
                 <CloseButton onPress={closeFn}>
                     <CloseImage source={cancelImage} />
                 </CloseButton>
             )}
-        </Wrapper>
+        </HeaderBox>
     )
 }
 
