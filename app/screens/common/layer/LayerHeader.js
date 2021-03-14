@@ -5,7 +5,6 @@ import cancelImage from './images/common-popup-cancel.png'
 const HeaderBox = styled.View`
     width: 100%;
     height: 42px;
-    margin-top: 14px;
     margin-bottom: 23px;
     display: flex;
     justify-content: center;
@@ -22,7 +21,6 @@ const TitleText = styled.Text`
 `
 
 const CloseButton = styled.TouchableOpacity`
-    padding: ${({theme}) => theme.paddings.xl};
     position: absolute;
     right: 0px;
 `
