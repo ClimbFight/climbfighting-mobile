@@ -66,12 +66,37 @@ const fonts = {
   `,
 }
 
+const interval = {
+    xs: addPx(4),
+    small: addPx(8),
+    base: addPx(10),
+    lg: addPx(12),
+    xl: addPx(14),
+    xxl: addPx(16),
+    xxxl: addPx(34),
+    xxxxl: addPx(56),
+}
+
+const verticalInterval = {
+    xs: addPx(4),
+    small: addPx(8),
+    base: addPx(12),
+    medium: addPx(14),
+    lg: addPx(16),
+    xl: addPx(20),
+    xxl: addPx(24),
+    xxxl: addPx(28),
+    xxxxl: addPx(32),
+}
+
 const theme = {
     fontSizes,
     colors,
     fonts,
     paddings,
     margins,
+    interval,
+    verticalInterval,
 }
 
 export default theme

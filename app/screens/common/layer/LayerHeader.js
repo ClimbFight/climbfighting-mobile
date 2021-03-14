@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import {colorTheme, globalFont} from '../../../styles/variables'
 import cancelImage from './images/common-popup-cancel.png'
 
 const Wrapper = styled.View`
@@ -13,18 +12,18 @@ const Wrapper = styled.View`
 `
 
 const TitleText = styled.Text`
-    ${globalFont.ko_bold}
-    font-size: 16px;
+    ${({theme}) => theme.fonts.ko_bold}
+    font-size: ${({theme}) => theme.fontSizes.lg};
     font-style: normal;
     text-align: center;
-    color: ${colorTheme['--grey-1']};
+    color: ${({theme}) => theme.colors['--grey-1']};
 `
 
 const CloseButton = styled.TouchableOpacity`
-    padding: 14px;
+    padding: ${({theme}) => theme.paddings.xl};
     position: absolute;
     right: 0;
-    bottom: -20px;
+    bottom: ${({theme}) => `-${theme.verticalInterval.xl}`};
 `
 
 const CloseImage = styled.Image`
