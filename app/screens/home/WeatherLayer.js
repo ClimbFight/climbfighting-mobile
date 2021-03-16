@@ -9,6 +9,8 @@ import Windy from './images/weather-windy-icon.png'
 import Foggy from './images/weather-foggy-icon.png'
 import Snowy from './images/weather-snowy-icon.png'
 
+import Search from './images/search-btn.png'
+
 const Container = styled.View`
     width: 100%;
 `
@@ -45,6 +47,15 @@ const WeatherFeedback = styled.Text`
     padding-top: 10px;
     padding-bottom: 10px;
     background-color: ${colorTheme['--white-2']};
+    justify-content: space-evenly;
+`
+
+const SearchBtn = styled.Image`
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right: 16px;
+    top: 16px;
 `
 
 function WeatherLayout({location, weatherInfo, feedback, logo = Sunny}) {
@@ -56,6 +67,7 @@ function WeatherLayout({location, weatherInfo, feedback, logo = Sunny}) {
                     <WeatherLocation>{location}</WeatherLocation>
                     <WeatherInfoText>{weatherInfo}</WeatherInfoText>
                 </Container>
+                <SearchBtn source={Search} />
             </WeatherInfoContainer>
             <WeatherFeedback>{feedback}</WeatherFeedback>
         </Container>
