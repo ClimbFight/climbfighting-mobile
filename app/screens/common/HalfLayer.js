@@ -11,7 +11,7 @@ const Wrapper = styled.View`
 
 const ContentBox = styled.View`
     width: 100%;
-    padding: 16px 14px 32px 32px;
+    padding: 14px 14px 32px 14px;
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
     background-color: #ffffff;

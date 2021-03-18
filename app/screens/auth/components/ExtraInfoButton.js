@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import {colorTheme, globalFont} from '../../../styles/variables'
 
 const ExtraInfoButtonBox = styled.TouchableOpacity`
     width: 50%;
@@ -8,12 +7,12 @@ const ExtraInfoButtonBox = styled.TouchableOpacity`
 `
 
 const ExtraInfoText = styled.Text`
-    ${globalFont.ko_light}
+    ${({theme}) => theme.fonts.ko_light}
     font-size: 12px;
     font-style: normal;
     text-align: center;
-    color: ${colorTheme['--grey-1']};
-    margin-top: 24px;
+    color: ${({theme}) => theme.colors['--grey-1']};
+    margin-top: ${({theme}) => `${theme.margins.xxxl}`};
 `
 
 const ExtraInfoButton = ({to, text, navigation}) => {

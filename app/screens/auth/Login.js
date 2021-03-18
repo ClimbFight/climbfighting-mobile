@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
-import {globalFont, colorTheme} from '../../styles/variables'
 import bdImg from './images/start_img.jpg'
 import LoginButtonLayer from './LoginButtonLayer'
 
@@ -16,27 +15,27 @@ const Cover = styled.ImageBackground`
 `
 
 const TextBox = styled.View`
-    margin: 0 32px;
+    margin: ${({theme}) => `0 ${theme.margins.xxxxl}`};
 `
 
 const TitleText = styled.Text`
-    ${globalFont.ko_light}
-    font-size: 32px;
+    ${({theme}) => theme.fonts.ko_light}
+    font-size: ${({theme}) => theme.fontSizes.xxxl};
     font-style: normal;
-    color: #ffffff;
+    color: ${({theme}) => theme.colors['--white']};
 `
 
 const SubTitleText = styled.Text`
-    ${globalFont.ko_light}
+    ${({theme}) => theme.fonts.ko_light}
     margin: 21px 0 50px;
-    font-size: 16px;
+    font-size: ${({theme}) => theme.fontSizes.lg};
     width: 100%;
     font-style: normal;
-    color: #ffffff;
+    color: ${({theme}) => theme.colors['--white']};
 }`
 
 const LoginButtonBox = styled.View`
-    margin: 0 32px 32px;
+    margin: ${({theme}) => `0 ${theme.margins.xxxxl} ${theme.margins.xxxxl}`};
     align-self: stretch;
 `
 
@@ -44,15 +43,15 @@ const LoginButton = styled.TouchableOpacity`
     padding: 18px 103px;
     border-radius: 27px;
     text-align: center;
-    background-color: ${colorTheme['--marine']};
+    background-color: ${({theme}) => theme.colors['--marine']};
 `
 
 const LoginButtonText = styled.Text`
-    ${globalFont.ko_bold}
-    font-size: 16px;
+    ${({theme}) => theme.fonts.ko_bold}
+    font-size: ${({theme}) => theme.fontSizes.lg};
     font-style: normal;
     text-align: center;
-    color: #ffffff;
+    color: ${({theme}) => theme.colors['--white']};
 `
 
 const Login = ({navigation}) => {

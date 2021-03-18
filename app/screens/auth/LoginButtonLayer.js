@@ -11,7 +11,7 @@ import ExtraInfoButton from './components/ExtraInfoButton'
 
 const LoginContainer = styled.View`
     align-items: center;
-    margin-bottom: 32px;
+    margin-bottom: ${({theme}) => `${theme.margins.xxxxl}`};
 `
 
 const LoginHelpContainer = styled.View`

@@ -1,30 +1,28 @@
 import React from 'react'
 import styled from 'styled-components'
-import {colorTheme, globalFont} from '../../../styles/variables'
 import cancelImage from './images/common-popup-cancel.png'
 
-const Wrapper = styled.View`
+const HeaderBox = styled.View`
     width: 100%;
+    height: 42px;
+    margin-bottom: 23px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 11px 0 48px 0;
     position: relative;
 `
 
 const TitleText = styled.Text`
-    ${globalFont.ko_bold}
-    font-size: 16px;
+    ${({theme}) => theme.fonts.ko_bold}
+    font-size: ${({theme}) => theme.fontSizes.lg};
     font-style: normal;
     text-align: center;
-    color: ${colorTheme['--grey-1']};
+    color: ${({theme}) => theme.colors['--grey-1']};
 `
 
 const CloseButton = styled.TouchableOpacity`
-    padding: 14px;
     position: absolute;
-    right: 0;
-    bottom: -20px;
+    right: 0px;
 `
 
 const CloseImage = styled.Image`
@@ -34,14 +32,14 @@ const CloseImage = styled.Image`
 
 const LayerHeader = ({title, closeFn, closeBtn = true}) => {
     return (
-        <Wrapper>
+        <HeaderBox>
             <TitleText>{title}</TitleText>
             {closeBtn && (
                 <CloseButton onPress={closeFn}>
                     <CloseImage source={cancelImage} />
                 </CloseButton>
             )}
-        </Wrapper>
+        </HeaderBox>
     )
 }
 
