@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import {colorTheme, globalFont} from '../../styles/variables'
 
 import Sunny from './images/weather-sunny-icon.png'
 import Cloudy from './images/weather-cloudy-icon.png'
@@ -29,24 +28,24 @@ const WeatherImg = styled.Image`
 `
 
 const WeatherLocation = styled.Text`
-    ${globalFont.ko_light}
+    ${({theme}) => theme.fonts.ko_bold}
     font-size: 13px;
 `
 
 const WeatherInfoText = styled.Text`
-    ${globalFont.ko_bold}
+    ${({theme}) => theme.fonts.ko_bold}
     font-size: 18px;
     justify-content: center;
     padding-top: 2px;
 `
 
 const WeatherFeedback = styled.Text`
-    ${globalFont.ko_light}
+    ${({theme}) => theme.fonts.ko_light}
     font-size: 14px;
     padding-left: 32px;
     padding-top: 10px;
     padding-bottom: 10px;
-    background-color: ${colorTheme['--white-2']};
+    background-color: ${({theme}) => theme.colors['--white-2']};
     justify-content: space-evenly;
 `
 
