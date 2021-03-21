@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import ActiveMark from './images/bookmark-active.png'
 import InactiveMark from './images/bookmark-inactive.png'
+import LocationIcon from './images/location-icon.png'
 
 const Container = styled.ScrollView`
     width: 100%;
@@ -53,25 +54,48 @@ const DiaryContent = styled.Text`
     margin-top: 16px;
 `
 
-const ImageContainer = styled.View`
+const ImageContainer = styled.ImageBackground`
     width: 100%;
+    height: 175px;
     margin-top: 16px;
     margin-bottom: 30px;
 `
 
-const ImageContent = styled.Image`
-    width: 100%;
-    height: 175px;
-    border-radius: 20px;
-`
-
-const OpacityRectangle = styled.Text`      
+const ImageInfo = styled.Text`          
+    align-self: flex-end;
     opacity: 0.6;
     width: 35px;
     padding: 8px;
     color: ${({theme}) => theme.colors['--white-1']}
     background: ${({theme}) => theme.colors['--grey-1']};
     border-radius: 8px;
+    margin-top: 9px;
+    margin-end: 9px;
+`
+const LocationInfoContainer = styled.View`
+    position: absolute;
+    bottom: 9px;
+    flex-direction: row;
+    height: 36px;
+    width: 30%;
+    opacity: 0.6;
+    background: ${({theme}) => theme.colors['--grey-1']};
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+`
+
+const LocationImg = styled.Image`
+    width: 8px;
+    height: 11px;
+`
+
+const LocationInfo = styled.Text`
+    ${({theme}) => theme.fonts.ko_bold}
+    color: ${({theme}) => theme.colors['--white-1']}
+    font-size: 11px;
+    margin-left: 1px;
 `
 
 function DiaryItem({thumbnail, name, time, content, marked, images, location}) {
@@ -86,11 +110,19 @@ function DiaryItem({thumbnail, name, time, content, marked, images, location}) {
                 <BookMark source={marked ? ActiveMark : InactiveMark} />
             </UserContainer>
             <DiaryContent>{content}</DiaryContent>
-            <ImageContainer>
+            <ImageContainer
+                source={{uri: images[0]}}
+                imageStyle={{borderRadius: 20}}>
                 {images.length > 1 ? (
-                    <OpacityRectangle>+{images.length - 1}</OpacityRectangle>
+                    <ImageInfo>+{images.length - 1}</ImageInfo>
                 ) : null}
-                <ImageContent source={{uri: images[0]}} />
+
+                {location != null ? (
+                    <LocationInfoContainer>
+                        <LocationImg source={LocationIcon} />
+                        <LocationInfo>{location}</LocationInfo>
+                    </LocationInfoContainer>
+                ) : null}
             </ImageContainer>
         </Container>
     )

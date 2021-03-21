@@ -16,7 +16,7 @@ const diaryList = [
             'https://newsimg.hankookilbo.com/cms/articlerelease/2019/04/29/201904291390027161_3.jpg',
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8uyx3Z85xVn1ie0BCR3aY9U2gs4BbK1kAXg&usqp=CAU',
         ],
-        location: '사당동',
+        location: '경상남도 백범산',
     },
     {
         id: 2,
