@@ -3,7 +3,7 @@ import {ScrollView, View} from 'react-native'
 import WeatherLayout from './WeatherLayer'
 import DiaryItem from './DiaryItem'
 
-const diaryList = [
+const diaryItems = [
     {
         id: 1,
         thumbnail: 'https://reactnative.dev/img/tiny_logo.png',
@@ -32,17 +32,19 @@ const diaryList = [
     },
 ]
 
-const diaryView = diaryList.map((item) => (
-    <DiaryItem
-        name={item.name}
-        thumbnail={item.thumbnail}
-        time={item.time}
-        content={item.content}
-        marked={item.isMarked}
-        images={item.images}
-        location={item.location}
-    />
-))
+const DiaryList = () => {
+    return diaryItems.map((item) => (
+        <DiaryItem
+            name={item.name}
+            thumbnail={item.thumbnail}
+            time={item.time}
+            content={item.content}
+            marked={item.isMarked}
+            images={item.images}
+            location={item.location}
+        />
+    ))
+}
 
 const Home = () => (
     <ScrollView>
@@ -51,7 +53,7 @@ const Home = () => (
             weatherInfo="맑음 -2°"
             feedback="등산하기 좋은 날씨네요!"
         />
-        {diaryView}
+        <DiaryList />
     </ScrollView>
 )
 
