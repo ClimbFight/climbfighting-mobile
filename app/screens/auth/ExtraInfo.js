@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {Text, View, StyleSheet, TextInput, TouchableOpacity} from 'react-native'
+import Layout from './extraInfo/Layout'
 
 const styles = StyleSheet.create({
     container: {
@@ -58,59 +59,61 @@ const ExtraInfo = ({navigation}) => {
     const [email, setEmail] = useState('')
     const [name, setName] = useState('')
 
-    return (
-        <View style={styles.container}>
-            <View style={styles.header}>
-                <Text style={styles.headerFont}>추가 정보 입력</Text>
-            </View>
+    return <Layout />
 
-            <View style={styles.extraForm}>
-                <View>
-                    <Text style={styles.textInputHeader}>이메일</Text>
-                    <TextInput
-                        style={styles.textInputStyle}
-                        onChangeText={(value) => setEmail(value)}
-                        placeholder="abc@test.com"
-                        value={email}
-                    />
-                </View>
+    // return (
+    //     <View style={styles.container}>
+    //         <View style={styles.header}>
+    //             <Text style={styles.headerFont}>추가 정보 입력</Text>
+    //         </View>
 
-                <View>
-                    <Text style={styles.textInputHeader}>별명 *</Text>
-                    <TextInput
-                        style={styles.textInputStyle}
-                        onChangeText={(value) => setName(value)}
-                        placeholder="별명"
-                        value={name}
-                    />
-                </View>
+    //         <View style={styles.extraForm}>
+    //             <View>
+    //                 <Text style={styles.textInputHeader}>이메일</Text>
+    //                 <TextInput
+    //                     style={styles.textInputStyle}
+    //                     onChangeText={(value) => setEmail(value)}
+    //                     placeholder="abc@test.com"
+    //                     value={email}
+    //                 />
+    //             </View>
 
-                <View>
-                    <Text>
-                        만 14세 이상이며 이용약관, 개인정보 처리 방침, 프로모션
-                        사용에 모두 동의합니다.
-                    </Text>
-                </View>
+    //             <View>
+    //                 <Text style={styles.textInputHeader}>별명 *</Text>
+    //                 <TextInput
+    //                     style={styles.textInputStyle}
+    //                     onChangeText={(value) => setName(value)}
+    //                     placeholder="별명"
+    //                     value={name}
+    //                 />
+    //             </View>
 
-                <View style={styles.termStyle}>
-                    <Text>만 14세 이상입니다. (필수)</Text>
-                    <Text>서비스 이용 약관 동의 (필수)</Text>
-                    <Text>개인정보 처리방침 (필수)</Text>
-                    <Text>이벤트 등 프로모션 사용 동의(선택) </Text>
-                </View>
+    //             <View>
+    //                 <Text>
+    //                     만 14세 이상이며 이용약관, 개인정보 처리 방침, 프로모션
+    //                     사용에 모두 동의합니다.
+    //                 </Text>
+    //             </View>
 
-                <View style={{height: '20%'}} />
+    //             <View style={styles.termStyle}>
+    //                 <Text>만 14세 이상입니다. (필수)</Text>
+    //                 <Text>서비스 이용 약관 동의 (필수)</Text>
+    //                 <Text>개인정보 처리방침 (필수)</Text>
+    //                 <Text>이벤트 등 프로모션 사용 동의(선택) </Text>
+    //             </View>
 
-                <TouchableOpacity style={styles.completeBtn}>
-                    <Text
-                        style={styles.completeBtnTxt}
-                        onPress={() => navigation.navigate('home')}>
-                        회원가입 완료
-                    </Text>
-                </TouchableOpacity>
-            </View>
-        </View>
-    )
+    //             <View style={{height: '20%'}} />
+
+    //             <TouchableOpacity style={styles.completeBtn}>
+    //                 <Text
+    //                     style={styles.completeBtnTxt}
+    //                     onPress={() => navigation.navigate('home')}>
+    //                     회원가입 완료
+    //                 </Text>
+    //             </TouchableOpacity>
+    //         </View>
+    //     </View>
+    // )
 }
 
 export default ExtraInfo
