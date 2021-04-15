@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 import styled from 'styled-components'
 import Layout from './join/Layout'
 
+const EmailRegex = /([a-zA-Z0-9_\-\\.]+)@([a-zA-Z0-9_\-\\.]+)\.([a-zA-Z]{2,5})/g
+
 /**
  * 빈 값 : --grey-4
  * 유효한 값 : --marine
@@ -9,12 +11,20 @@ import Layout from './join/Layout'
  */
 const Input = styled.TextInput`
     width: 100%;
-    border-bottom-color: ${({theme, ...props}) =>
-        props.value.length > 0
-            ? theme.colors['--grey-4']
-            : theme.colors['--red']};
+    border-bottom-color: ${({theme, ...props}) => {
+        if (props.value.length > 0 && EmailRegex.test(props.value)) {
+            return theme.colors['--marine']
+        }
+
+        if (props.value.length > 0 && !EmailRegex.test(props.value)) {
+            return theme.colors['--red']
+        }
+
+        return theme.colors['--grey-4']
+    }};
     border-bottom-width: 1px;
     margin-top: 97px;
+    font-size: ${({theme}) => theme.fontSizes.xl};
 `
 
 const FormText = styled.Text`
@@ -30,8 +40,14 @@ const EmailInput = ({navigation}) => {
 
     return (
         <>
-            <Input onChangeText={(value) => setEmail(value)} value={email} />
-            <FormText>유효한 이메일 주소가 아닙니다.</FormText>
+            <Input
+                keyboardType="email-address"
+                onChangeText={(value) => setEmail(value)}
+                value={email}
+            />
+            {email.length > 0 && !EmailRegex.test(email) && (
+                <FormText>유효한 이메일 주소가 아닙니다.</FormText>
+            )}
         </>
     )
 }
