@@ -7,7 +7,7 @@ import {createStackNavigator} from 'react-navigation-stack'
 
 import Login from './Login'
 import Signup from './Signup'
-import ExtraInfo from './ExtraInfo'
+import EmailForm from './EmailForm'
 
 const AuthNavigator = createStackNavigator(
     {
@@ -25,8 +25,8 @@ const AuthNavigator = createStackNavigator(
             }),
         },
 
-        extraInfo: {
-            screen: ExtraInfo,
+        joinEmail: {
+            screen: EmailForm,
             navigationOptions: () => ({
                 header: null,
             }),

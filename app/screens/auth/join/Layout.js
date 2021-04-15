@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import DismissKeyboardView from './DismissKeyboard'
+import DismissKeyboardView from './DismissKeyboardView'
 
 const Wrapper = styled.View`
     padding: 96px 32px 0;
@@ -31,33 +31,15 @@ const SubTitle = styled.Text`
     padding: 8px;
 `
 
-const Input = styled.TextInput`
-    width: 100%;
-    border-bottom-color: ${({theme}) => theme.colors['--grey-4']};
-    border-bottom-width: 1px;
-    margin-top: 97px;
-`
-
-const Layout = () => {
-    const [email, setEmail] = useState('')
-
+const Layout = ({title, subtitle, children}) => {
     return (
         <DismissKeyboardView style={{height: '100%'}}>
             <Wrapper>
                 <TitleBox>
-                    <Title>
-                        반가워요!
-                        {'\n'}
-                        이메일을 알려주세요.
-                    </Title>
-                    <SubTitle>
-                        이메일 주소는 다른 사용자에게 공개되지 않아요.
-                    </SubTitle>
+                    <Title>{title}</Title>
+                    <SubTitle>{subtitle}</SubTitle>
                 </TitleBox>
-                <Input
-                    onChangeText={(value) => setEmail(value)}
-                    value={email}
-                />
+                {children}
             </Wrapper>
         </DismissKeyboardView>
     )
