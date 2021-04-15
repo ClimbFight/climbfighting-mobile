@@ -10,7 +10,8 @@ const Button = styled.TouchableOpacity`
     padding: 18px 103px;
     border-radius: 27px;
     text-align: center;
-    background-color: ${({theme}) => theme.colors['--marine']};
+    background-color: ${({theme, ...props}) =>
+        props.disabled ? theme.colors['--grey-5'] : theme.colors['--marine']};
 `
 
 const ButtonText = styled.Text`
@@ -21,14 +22,22 @@ const ButtonText = styled.Text`
     color: ${({theme}) => theme.colors['--white']};
 `
 
-const CommonButton = ({text, onPress, activeOpacity = 0.9}) => {
+const FooterButton = ({
+    text,
+    onPress,
+    activeOpacity = 0.9,
+    disabled = false,
+}) => {
     return (
         <ButtonBox>
-            <Button activeOpacity={activeOpacity} onPress={onPress}>
+            <Button
+                disabled={disabled}
+                activeOpacity={activeOpacity}
+                onPress={onPress}>
                 <ButtonText>{text}</ButtonText>
             </Button>
         </ButtonBox>
     )
 }
 
-export default CommonButton
+export default FooterButton

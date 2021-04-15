@@ -21,8 +21,14 @@ const EmailForm = ({navigation}) => {
         subtitle: '이메일 주소는 다른 사용자에게 공개되지 않아요.',
     }
 
+    const buttonConfig = {
+        text: '다음',
+        onPress: () => {},
+        disabled: true,
+    }
+
     return (
-        <Layout {...headerProps}>
+        <Layout {...headerProps} buttonConfig={buttonConfig}>
             <EmailInput navigation={navigation} />
         </Layout>
     )

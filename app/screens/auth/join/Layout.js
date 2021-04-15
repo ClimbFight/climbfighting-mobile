@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import FooterButton from '../components/FooterButton'
 import DismissKeyboardView from './DismissKeyboardView'
 
 const Wrapper = styled.View`
@@ -30,8 +31,19 @@ const SubTitle = styled.Text`
     color: ${({theme}) => theme.colors['--grey-3']};
     padding: 8px;
 `
+const Footer = styled.View`
+    display: flex;
+    align-items: flex-end;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+`
 
-const Layout = ({title, subtitle, children}) => {
+const noop = () => {}
+
+const Layout = ({title, subtitle, children, buttonConfig = {}}) => {
+    const {text = '다음', onPress = noop, disabled = true} = buttonConfig
+
     return (
         <DismissKeyboardView style={{height: '100%'}}>
             <Wrapper>
@@ -41,6 +53,13 @@ const Layout = ({title, subtitle, children}) => {
                 </TitleBox>
                 {children}
             </Wrapper>
+            <Footer>
+                <FooterButton
+                    disabled={disabled}
+                    text={text}
+                    onPress={onPress}
+                />
+            </Footer>
         </DismissKeyboardView>
     )
 }

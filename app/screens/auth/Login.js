@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
-import CommonButton from './components/CommonButton'
+import FooterButton from './components/FooterButton'
 import bdImg from './images/start_img.jpg'
 import LoginButtonLayer from './LoginButtonLayer'
 
@@ -65,7 +65,7 @@ const Login = ({navigation}) => {
                         내가 다녀간 산의 모습을 기록해보세요.
                     </SubTitleText>
                 </TextBox>
-                <CommonButton text="시작하기" onPress={openLoginLayer} />
+                <FooterButton text="시작하기" onPress={openLoginLayer} />
                 <LoginButtonLayer
                     isShow={isShow}
                     navigation={navigation}
