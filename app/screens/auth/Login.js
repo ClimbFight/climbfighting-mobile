@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
+import CommonButton from './components/CommonButton'
 import bdImg from './images/start_img.jpg'
 import LoginButtonLayer from './LoginButtonLayer'
 
@@ -34,26 +35,6 @@ const SubTitleText = styled.Text`
     color: ${({theme}) => theme.colors['--white']};
 }`
 
-const LoginButtonBox = styled.View`
-    margin: ${({theme}) => `0 ${theme.margins.xxxxl} ${theme.margins.xxxxl}`};
-    align-self: stretch;
-`
-
-const LoginButton = styled.TouchableOpacity`
-    padding: 18px 103px;
-    border-radius: 27px;
-    text-align: center;
-    background-color: ${({theme}) => theme.colors['--marine']};
-`
-
-const LoginButtonText = styled.Text`
-    ${({theme}) => theme.fonts.ko_bold}
-    font-size: ${({theme}) => theme.fontSizes.lg};
-    font-style: normal;
-    text-align: center;
-    color: ${({theme}) => theme.colors['--white']};
-`
-
 const Login = ({navigation}) => {
     const [isShow, setIsShow] = useState(false)
 
@@ -84,11 +65,7 @@ const Login = ({navigation}) => {
                         내가 다녀간 산의 모습을 기록해보세요.
                     </SubTitleText>
                 </TextBox>
-                <LoginButtonBox>
-                    <LoginButton activeOpacity={0.9} onPress={openLoginLayer}>
-                        <LoginButtonText>시작하기</LoginButtonText>
-                    </LoginButton>
-                </LoginButtonBox>
+                <CommonButton text="시작하기" onPress={openLoginLayer} />
                 <LoginButtonLayer
                     isShow={isShow}
                     navigation={navigation}
