@@ -15,13 +15,16 @@ const createJoinStore = () => ({
         if (this.email.length === 0) {
             return EMAIL_STATUS.NORMAL
         }
-        if (isValidEmailAddr(this.email)) {
-            return EMAIL_STATUS.VALID
-        }
         if (!isValidEmailAddr(this.email)) {
             return EMAIL_STATUS.INVALID
         }
+        if (isValidEmailAddr(this.email)) {
+            return EMAIL_STATUS.VALID
+        }
         return EMAIL_STATUS.NORMAL
+    },
+    get isValid() {
+        return this.status === EMAIL_STATUS.VALID
     },
 })
 

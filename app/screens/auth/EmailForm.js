@@ -18,11 +18,11 @@ const Input = styled.TextInput`
         if (email.length === 0) {
             return theme.colors['--grey-4']
         }
-        if (isValidEmailAddr(email)) {
-            return theme.colors['--marine']
-        }
         if (!isValidEmailAddr(email)) {
             return theme.colors['--red']
+        }
+        if (isValidEmailAddr(email)) {
+            return theme.colors['--marine']
         }
         return theme.colors['--grey-4']
     }};
@@ -69,6 +69,7 @@ const Footer = styled.View`
 `
 
 const EmailForm = ({navigation}) => {
+    const {isValid} = useJoinStore()
     const headerProps = {
         title: '반가워요!\n이메일을 알려주세요.',
         subtitle: '이메일 주소는 다른 사용자에게 공개되지 않아요.',
@@ -80,7 +81,11 @@ const EmailForm = ({navigation}) => {
                 <EmailInput navigation={navigation} />
             </Layout>
             <Footer>
-                <FooterButton disabled text="다음" onPress={() => {}} />
+                <FooterButton
+                    disabled={!isValid}
+                    text="다음"
+                    onPress={() => {}}
+                />
             </Footer>
         </>
     )
