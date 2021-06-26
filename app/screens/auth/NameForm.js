@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import styled from 'styled-components'
 import {observer} from 'mobx-react-lite'
 import Layout from './join/Layout'
@@ -54,6 +54,12 @@ const NameInput = observer(() => {
         isAlreadyExist,
         nameStatus,
     } = useJoinStore()
+
+    useEffect(() => {
+        return () => {
+            setName('')
+        }
+    }, [])
     return (
         <InputBox>
             <Input onChangeText={setName} value={name} valid={nameStatus} />
@@ -73,10 +79,14 @@ const Footer = styled.View`
 `
 
 const NameForm = ({navigation}) => {
+    const {isNameValid} = useJoinStore()
     const headerProps = {
         title: '좋아요!\n이제 이름을 알려주세요.',
         subtitle:
             '본명이 아니어도 좋아요!\n나를 잘 표현하는 별명도 좋은 이름이 될 거에요.',
+    }
+    const goNext = () => {
+        navigation.navigate('agreement')
     }
 
     return (
@@ -85,7 +95,11 @@ const NameForm = ({navigation}) => {
                 <NameInput />
             </Layout>
             <Footer>
-                <FooterButton disabled text="다음" onPress={() => {}} />
+                <FooterButton
+                    disabled={!isNameValid}
+                    text="다음"
+                    onPress={goNext}
+                />
             </Footer>
         </>
     )

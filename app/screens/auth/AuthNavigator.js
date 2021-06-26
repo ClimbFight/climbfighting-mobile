@@ -8,6 +8,7 @@ import Login from './Login'
 import Signup from './Signup'
 import EmailForm from './EmailForm'
 import NameForm from './NameForm'
+import Agreement from './Agreement'
 
 const AuthNavigator = createStackNavigator(
     {
@@ -31,6 +32,12 @@ const AuthNavigator = createStackNavigator(
         },
         joinName: {
             screen: NameForm,
+            navigationOptions: () => ({
+                header: null,
+            }),
+        },
+        agreement: {
+            screen: Agreement,
             navigationOptions: () => ({
                 header: null,
             }),

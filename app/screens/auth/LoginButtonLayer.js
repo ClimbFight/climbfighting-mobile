@@ -35,7 +35,7 @@ const LoginButtonLayer = ({isShow, closeFn, navigation}) => {
                         navigation={navigation}
                     />
                     <ExtraInfoButton
-                        to="joinEmail"
+                        to="agreement"
                         text="ID/PW 찾기"
                         navigation={navigation}
                     />
