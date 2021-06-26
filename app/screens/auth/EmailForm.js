@@ -11,7 +11,6 @@ import okIcon from './images/email-ok-icon.png'
 const InputBox = styled.View`
     width: 100%;
     margin-top: 97px;
-    font-size: ${({theme}) => theme.fontSizes.xl};
 `
 const Input = styled.TextInput`
     border-bottom-color: ${({theme, ...props}) => {
@@ -28,6 +27,9 @@ const Input = styled.TextInput`
         return theme.colors['--grey-4']
     }};
     border-bottom-width: 1px;
+    font-size: ${({theme}) => theme.fontSizes.xl};
+    ${({theme}) => theme.fonts.ko_medium}
+    color: ${({theme}) => theme.colors['--grey-1']};
 `
 
 const FormText = styled.Text`
@@ -44,7 +46,7 @@ const Icon = styled.Image`
     bottom: 10px;
 `
 
-const EmailInput = observer(({navigation}) => {
+const EmailInput = observer(() => {
     const {email, setEmail, status, isValid} = useJoinStore()
 
     useEffect(() => {
@@ -83,7 +85,9 @@ const EmailForm = ({navigation}) => {
         subtitle: '이메일 주소는 다른 사용자에게 공개되지 않아요.',
     }
 
-    const goNext = () => {}
+    const goNext = () => {
+        navigation.navigate('joinName')
+    }
 
     return (
         <>
@@ -94,7 +98,7 @@ const EmailForm = ({navigation}) => {
                 <FooterButton
                     disabled={!isValid}
                     text="다음"
-                    onPress={() => {}}
+                    onPress={goNext}
                 />
             </Footer>
         </>

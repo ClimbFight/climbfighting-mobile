@@ -12,8 +12,11 @@ const colors = {
     '--red': '#ff4523',
 }
 
-const light_theme = {
+const lightTheme = {
     colors,
 }
 
-export default light_theme
+/**
+ * @returns {ReturnType<light_theme>} light_theme
+ */
+export default lightTheme
