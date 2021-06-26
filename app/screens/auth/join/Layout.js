@@ -1,6 +1,6 @@
 import React from 'react'
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view'
 import styled from 'styled-components'
-import FooterButton from '../components/FooterButton'
 import DismissKeyboardView from './DismissKeyboardView'
 
 const Wrapper = styled.View`
@@ -31,36 +31,20 @@ const SubTitle = styled.Text`
     color: ${({theme}) => theme.colors['--grey-3']};
     padding: 8px;
 `
-const Footer = styled.View`
-    display: flex;
-    align-items: flex-end;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-`
 
-const noop = () => {}
-
-const Layout = ({title, subtitle, children, buttonConfig = {}}) => {
-    const {text = '다음', onPress = noop, disabled = true} = buttonConfig
-
+const Layout = ({title, subtitle, children}) => {
     return (
-        <DismissKeyboardView style={{height: '100%'}}>
-            <Wrapper>
-                <TitleBox>
-                    <Title>{title}</Title>
-                    <SubTitle>{subtitle}</SubTitle>
-                </TitleBox>
-                {children}
-            </Wrapper>
-            <Footer>
-                <FooterButton
-                    disabled={disabled}
-                    text={text}
-                    onPress={onPress}
-                />
-            </Footer>
-        </DismissKeyboardView>
+        <KeyboardAwareScrollView behavior="padding" enabled>
+            <DismissKeyboardView style={{height: '100%'}}>
+                <Wrapper>
+                    <TitleBox>
+                        <Title>{title}</Title>
+                        <SubTitle>{subtitle}</SubTitle>
+                    </TitleBox>
+                    {children}
+                </Wrapper>
+            </DismissKeyboardView>
+        </KeyboardAwareScrollView>
     )
 }
 

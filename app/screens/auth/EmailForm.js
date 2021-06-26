@@ -1,30 +1,32 @@
-import React, {useState} from 'react'
+import {observer} from 'mobx-react-lite'
+import React, {useEffect} from 'react'
 import styled from 'styled-components'
+import {useJoinStore} from '../../context'
+import {EMAIL_STATUS} from '../../stores/joinStore'
 import Layout from './join/Layout'
+import FooterButton from './components/FooterButton'
+import {isValidEmailAddr} from '../../utils'
 
-const EmailRegex = /([a-zA-Z0-9_\-\\.]+)@([a-zA-Z0-9_\-\\.]+)\.([a-zA-Z]{2,5})/g
-
-/**
- * 빈 값 : --grey-4
- * 유효한 값 : --marine
- * 유효하지 않은 값 : --red
- */
-const Input = styled.TextInput`
+const InputBox = styled.View`
     width: 100%;
+    margin-top: 97px;
+    font-size: ${({theme}) => theme.fontSizes.xl};
+`
+const Input = styled.TextInput`
     border-bottom-color: ${({theme, ...props}) => {
-        if (props.value.length > 0 && EmailRegex.test(props.value)) {
+        const email = props.value
+        if (email.length === 0) {
+            return theme.colors['--grey-4']
+        }
+        if (isValidEmailAddr(email)) {
             return theme.colors['--marine']
         }
-
-        if (props.value.length > 0 && !EmailRegex.test(props.value)) {
+        if (!isValidEmailAddr(email)) {
             return theme.colors['--red']
         }
-
         return theme.colors['--grey-4']
     }};
     border-bottom-width: 1px;
-    margin-top: 97px;
-    font-size: ${({theme}) => theme.fontSizes.xl};
 `
 
 const FormText = styled.Text`
@@ -35,22 +37,36 @@ const FormText = styled.Text`
     color: ${({theme}) => theme.colors['--red']};
 `
 
-const EmailInput = ({navigation}) => {
-    const [email, setEmail] = useState('')
+const EmailInput = observer(({navigation}) => {
+    const {email, setEmail, status} = useJoinStore()
+
+    useEffect(() => {
+        return () => {
+            setEmail('')
+        }
+    }, [])
 
     return (
-        <>
+        <InputBox>
             <Input
                 keyboardType="email-address"
-                onChangeText={(value) => setEmail(value)}
+                onChangeText={setEmail}
                 value={email}
             />
-            {email.length > 0 && !EmailRegex.test(email) && (
+            {status === EMAIL_STATUS.INVALID && (
                 <FormText>유효한 이메일 주소가 아닙니다.</FormText>
             )}
-        </>
+        </InputBox>
     )
-}
+})
+
+const Footer = styled.View`
+    display: flex;
+    align-items: flex-end;
+    bottom: 0;
+    width: 100%;
+    margin-top: 32px;
+`
 
 const EmailForm = ({navigation}) => {
     const headerProps = {
@@ -58,17 +74,16 @@ const EmailForm = ({navigation}) => {
         subtitle: '이메일 주소는 다른 사용자에게 공개되지 않아요.',
     }
 
-    const buttonConfig = {
-        text: '다음',
-        onPress: () => {},
-        disabled: true,
-    }
-
     return (
-        <Layout {...headerProps} buttonConfig={buttonConfig}>
-            <EmailInput navigation={navigation} />
-        </Layout>
+        <>
+            <Layout {...headerProps}>
+                <EmailInput navigation={navigation} />
+            </Layout>
+            <Footer>
+                <FooterButton disabled text="다음" onPress={() => {}} />
+            </Footer>
+        </>
     )
 }
 
-export default EmailForm
+export default observer(EmailForm)
