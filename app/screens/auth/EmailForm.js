@@ -6,6 +6,7 @@ import {EMAIL_STATUS} from '../../stores/joinStore'
 import Layout from './join/Layout'
 import FooterButton from './components/FooterButton'
 import {isValidEmailAddr} from '../../utils'
+import okIcon from './images/email-ok-icon.png'
 
 const InputBox = styled.View`
     width: 100%;
@@ -37,8 +38,14 @@ const FormText = styled.Text`
     color: ${({theme}) => theme.colors['--red']};
 `
 
+const Icon = styled.Image`
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+`
+
 const EmailInput = observer(({navigation}) => {
-    const {email, setEmail, status} = useJoinStore()
+    const {email, setEmail, status, isValid} = useJoinStore()
 
     useEffect(() => {
         return () => {
@@ -53,6 +60,7 @@ const EmailInput = observer(({navigation}) => {
                 onChangeText={setEmail}
                 value={email}
             />
+            {isValid && <Icon source={okIcon} />}
             {status === EMAIL_STATUS.INVALID && (
                 <FormText>유효한 이메일 주소가 아닙니다.</FormText>
             )}
@@ -74,6 +82,8 @@ const EmailForm = ({navigation}) => {
         title: '반가워요!\n이메일을 알려주세요.',
         subtitle: '이메일 주소는 다른 사용자에게 공개되지 않아요.',
     }
+
+    const goNext = () => {}
 
     return (
         <>
