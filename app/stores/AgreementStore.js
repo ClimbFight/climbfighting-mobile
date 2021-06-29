@@ -19,6 +19,22 @@ const createAgreementStore = () => ({
     clear() {
         this.list = []
     },
+    get isAllChecked() {
+        return this.list.every(({isChecked}) => isChecked)
+    },
+    toggleAll(isChecked) {
+        const nextList = this.list.map((item) => ({
+            ...item,
+            isChecked,
+        }))
+
+        this.list = cloneDeep(nextList)
+    },
+    get isActive() {
+        return this.list.every(
+            ({isChecked, isRequired}) => !isRequired || isChecked,
+        )
+    },
 })
 
 export {createAgreementStore}
