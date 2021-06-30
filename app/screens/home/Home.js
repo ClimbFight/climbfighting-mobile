@@ -2,6 +2,7 @@ import React from 'react'
 import {ScrollView, View} from 'react-native'
 import WeatherLayout from './WeatherLayer'
 import DiaryItem from './DiaryItem'
+import DiaryItemOrder from './DiaryItemOrder'
 
 const diaryItems = [
     {
@@ -32,6 +33,8 @@ const diaryItems = [
     },
 ]
 
+const isRecent = false
+
 const DiaryList = () => {
     return diaryItems.map((item) => (
         <DiaryItem
@@ -53,6 +56,7 @@ const Home = () => (
             weatherInfo="맑음 -2°"
             feedback="등산하기 좋은 날씨네요!"
         />
+        <DiaryItemOrder isRecent />
         <DiaryList />
     </ScrollView>
 )
