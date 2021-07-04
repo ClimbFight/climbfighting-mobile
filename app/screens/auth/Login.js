@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
-import FooterButton from './components/FooterButton'
+import FooterButton from '$screens/auth/components/FooterButton'
 import bdImg from './images/start_img.jpg'
 import LoginButtonLayer from './LoginButtonLayer'
 

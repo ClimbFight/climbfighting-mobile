@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react'
 import styled from 'styled-components'
 import {observer} from 'mobx-react-lite'
-import Layout from './join/Layout'
-import FooterButton from './components/FooterButton'
-import {useJoinStore} from '../../context'
+import Layout from '$screens/auth/join/Layout'
+import FooterButton from '$screens/auth/components/FooterButton'
+import {useJoinStore} from '$context'
 import okIcon from './images/email-ok-icon.png'
-import {NAME_STATUS} from '../../stores/joinStore'
+import {NAME_STATUS} from '$stores/joinStore'
 
 const InputBox = styled.View`
     width: 100%;
