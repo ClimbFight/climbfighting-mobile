@@ -5,24 +5,28 @@ module.exports = {
         [
             'babel-plugin-root-import',
             {
-                rootPathPrefix: '$',
-                rootPathSuffix: 'app',
-            },
-            {
-                rootPathPrefix: '$context',
-                rootPathSuffix: 'app/context/index.js',
-            },
-            {
-                rootPathPrefix: '$utils',
-                rootPathSuffix: 'app/utils',
-            },
-            {
-                rootPathPrefix: '$screens',
-                rootPathSuffix: 'app/screens',
-            },
-            {
-                rootPathPrefix: '$stores',
-                rootPathSuffix: 'app/stores',
+                paths: [
+                    {
+                        rootPathPrefix: '$',
+                        rootPathSuffix: 'app',
+                    },
+                    {
+                        rootPathPrefix: '$context',
+                        rootPathSuffix: 'app/context/index.js',
+                    },
+                    {
+                        rootPathPrefix: '$utils',
+                        rootPathSuffix: 'app/utils',
+                    },
+                    {
+                        rootPathPrefix: '$screens',
+                        rootPathSuffix: 'app/screens',
+                    },
+                    {
+                        rootPathPrefix: '$stores',
+                        rootPathSuffix: 'app/stores',
+                    },
+                ],
             },
         ],
     ],
