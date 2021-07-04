@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view'
 import styled from 'styled-components'
 import DismissKeyboardView from './DismissKeyboardView'
@@ -33,8 +33,20 @@ const SubTitle = styled.Text`
 `
 
 const Layout = ({title, subtitle, children}) => {
+    const scrollRef = useRef()
+
+    const onContentSizeChange = () => {
+        scrollRef?.current?.scrollToEnd({animated: false})
+    }
+
     return (
-        <KeyboardAwareScrollView behavior="padding" enabled>
+        <KeyboardAwareScrollView
+            innerRef={(ref) => {
+                scrollRef.current = ref
+            }}
+            onContentSizeChange={onContentSizeChange}
+            enableResetScrollToCoords={false}
+            viewIsInsideTabBar>
             <DismissKeyboardView style={{height: '100%'}}>
                 <Wrapper>
                     <TitleBox>
