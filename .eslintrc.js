@@ -34,4 +34,13 @@ module.exports = {
         semi: 0,
         'react/jsx-props-no-spreading': 0,
     },
+    settings: {
+        'import/resolver': {
+            'root-import': {
+                rootPathPrefix: '$',
+                rootPathSuffix: 'app',
+                extensions: ['.js', '.android.js', '.ios.js'],
+            },
+        },
+    },
 }

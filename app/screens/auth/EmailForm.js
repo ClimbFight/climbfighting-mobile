@@ -1,11 +1,11 @@
 import {observer} from 'mobx-react-lite'
 import React, {useEffect} from 'react'
 import styled from 'styled-components'
-import {useJoinStore} from '../../context'
-import {EMAIL_STATUS} from '../../stores/joinStore'
+import {useJoinStore} from '$/context'
+import {EMAIL_STATUS} from '$/stores/joinStore'
 import Layout from './join/Layout'
-import FooterButton from './components/FooterButton'
-import {isValidEmailAddr} from '../../utils'
+import FooterButton from '$/screens/auth/components/FooterButton'
+import {isValidEmailAddr} from '$/utils'
 import okIcon from './images/email-ok-icon.png'
 
 const InputBox = styled.View`

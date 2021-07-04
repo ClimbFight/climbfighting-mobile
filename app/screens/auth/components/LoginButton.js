@@ -27,9 +27,13 @@ const LoginText = styled.Text`
     color: ${({theme}) => theme.colors['--grey-1']};
 `
 
-const LoginButton = ({text, logo = googleLogo}) => {
+const LoginButton = ({text, logo = googleLogo, navigation}) => {
+    const goHome = () => {
+        navigation.navigate('home')
+    }
+
     return (
-        <LoginButtonBox activeOpacity={1}>
+        <LoginButtonBox activeOpacity={1} onPress={goHome}>
             <LoginLogo source={logo} />
             <LoginText>{text}</LoginText>
         </LoginButtonBox>

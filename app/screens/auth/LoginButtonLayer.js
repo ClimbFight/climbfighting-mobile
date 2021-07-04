@@ -24,9 +24,21 @@ const LoginButtonLayer = ({isShow, closeFn, navigation}) => {
         <HalfLayer isShow={isShow} closeFn={closeFn}>
             <LayerHeader title="등산화이팅 시작하기" closeFn={closeFn} />
             <LoginContainer>
-                <LoginButton text="Google 로그인" logo={googleLogo} />
-                <LoginButton text="네이버 로그인" logo={naverLogo} />
-                <LoginButton text="이메일 로그인" logo={emailIcon} />
+                <LoginButton
+                    text="Google 로그인"
+                    logo={googleLogo}
+                    navigation={navigation}
+                />
+                <LoginButton
+                    text="네이버 로그인"
+                    logo={naverLogo}
+                    navigation={navigation}
+                />
+                <LoginButton
+                    text="이메일 로그인"
+                    logo={emailIcon}
+                    navigation={navigation}
+                />
 
                 <LoginHelpContainer>
                     <ExtraInfoButton
