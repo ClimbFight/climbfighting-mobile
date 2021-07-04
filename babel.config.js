@@ -20,6 +20,10 @@ module.exports = {
                 rootPathPrefix: '$screens',
                 rootPathSuffix: 'app/screens',
             },
+            {
+                rootPathPrefix: '$stores',
+                rootPathSuffix: 'app/stores',
+            },
         ],
     ],
 }

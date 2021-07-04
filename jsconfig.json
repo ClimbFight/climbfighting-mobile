@@ -5,7 +5,8 @@
             "$/*": ["*"],
             "$context": ["context/index.js"],
             "$utils/": ["utils/"],
-            "$screens/*": ["screens/*"]
+            "$screens/*": ["screens/*"],
+            "$stores/*": ["stores/*"]
         }
     },
     "exclude": ["node_modules"]
