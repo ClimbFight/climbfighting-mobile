@@ -2,12 +2,13 @@
 /**
  * @flow strict-local
  */
-import React from 'react'
 import {createStackNavigator} from 'react-navigation-stack'
 
 import Login from './Login'
 import Signup from './Signup'
-import ExtraInfo from './ExtraInfo'
+import EmailForm from './EmailForm'
+import NameForm from './NameForm'
+import Agreement from './Agreement'
 
 const AuthNavigator = createStackNavigator(
     {
@@ -17,16 +18,26 @@ const AuthNavigator = createStackNavigator(
                 header: null,
             }),
         },
-
         signUp: {
             screen: Signup,
             navigationOptions: () => ({
                 header: null,
             }),
         },
-
-        extraInfo: {
-            screen: ExtraInfo,
+        joinEmail: {
+            screen: EmailForm,
+            navigationOptions: () => ({
+                header: null,
+            }),
+        },
+        joinName: {
+            screen: NameForm,
+            navigationOptions: () => ({
+                header: null,
+            }),
+        },
+        agreement: {
+            screen: Agreement,
             navigationOptions: () => ({
                 header: null,
             }),

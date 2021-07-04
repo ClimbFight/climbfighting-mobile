@@ -1,64 +1,79 @@
-import React from 'react'
-import {View, Text} from 'react-native'
+import React, {useState} from 'react'
 import styled from 'styled-components'
+import FooterButton from './components/FooterButton'
+import bdImg from './images/start_img.jpg'
+import LoginButtonLayer from './LoginButtonLayer'
 
 const Container = styled.View`
     flex: 1;
 `
 
-const LoginContainer = styled.View`
-    align-items: center;
-    margin-bottom: 50px;
-`
-
-const LoginButton = styled.TouchableOpacity`
-    width: 80%;
-    height: 15%;
-    border-width: 1;
-    border-color: black;
-    align-items: center;
-    justify-content: center;
-    margin: 10px;
-`
-
-const ExtraInfoButton = styled.TouchableOpacity`
-    width: 50%;
-    align-items: center;
-`
-
-const LoginHelpContainer = styled.View`
+const Cover = styled.ImageBackground`
     flex: 1;
-    flex-direction: row;
+    resize-mode: cover;
+    justify-content: flex-end;
+    align-items: flex-start;
 `
 
-const Login = ({navigation}) => (
-    <Container>
-        <View style={{height: '50%'}} />
-        <LoginContainer>
-            <LoginButton>
-                <Text>Google 로그인</Text>
-            </LoginButton>
+const TextBox = styled.View`
+    margin: ${({theme}) => `0 ${theme.margins.xxxxl}`};
+`
 
-            <LoginButton>
-                <Text>네이버 로그인</Text>
-            </LoginButton>
+const TitleText = styled.Text`
+    ${({theme}) => theme.fonts.ko_light}
+    font-size: ${({theme}) => theme.fontSizes.xxxl};
+    font-style: normal;
+    color: ${({theme}) => theme.colors['--white']};
+`
 
-            <LoginButton>
-                <Text>이메일 로그인</Text>
-            </LoginButton>
+const SubTitleText = styled.Text`
+    ${({theme}) => theme.fonts.ko_light}
+    margin: 21px 0 50px;
+    font-size: ${({theme}) => theme.fontSizes.lg};
+    width: 100%;
+    font-style: normal;
+    color: ${({theme}) => theme.colors['--white']};
+}`
 
-            <LoginHelpContainer>
-                <ExtraInfoButton
-                    onPress={() => navigation.navigate('extraInfo')}>
-                    <Text>이메일 회원가입</Text>
-                </ExtraInfoButton>
+const Login = ({navigation}) => {
+    const [isShow, setIsShow] = useState(false)
 
-                <ExtraInfoButton>
-                    <Text>ID/PW 찾기</Text>
-                </ExtraInfoButton>
-            </LoginHelpContainer>
-        </LoginContainer>
-    </Container>
-)
+    // const buttonRef = useRef()
+
+    // const measureButton = (x, y, width, height, pageX, pageY) => {
+    //     return width > 0 ? setBtnWidth(`${width - 64}px`) : setBtnWidth('100%')
+    // }
+
+    // useEffect(() => {
+    //     if (isMounted) {
+    //         buttonRef.current.measure(measureButton)
+    //     }
+    // }, [isMounted])
+
+    const openLoginLayer = () => setIsShow(!isShow)
+
+    const closeFn = () => setIsShow(false)
+
+    return (
+        <Container>
+            <Cover source={bdImg}>
+                <TextBox>
+                    <TitleText>내 산의 기록</TitleText>
+                    <SubTitleText>
+                        싱그러운 풀내음, 바스락거리는 나뭇잎,
+                        {'\n'}
+                        내가 다녀간 산의 모습을 기록해보세요.
+                    </SubTitleText>
+                </TextBox>
+                <FooterButton text="시작하기" onPress={openLoginLayer} />
+                <LoginButtonLayer
+                    isShow={isShow}
+                    navigation={navigation}
+                    closeFn={closeFn}
+                />
+            </Cover>
+        </Container>
+    )
+}
 
 export default Login

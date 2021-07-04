@@ -28,7 +28,10 @@ module.exports = {
         ],
         'react/prop-types': 0,
         'no-unused-vars': 1,
+        camelcase: 1,
         'import/no-named-as-default': 0,
+        'import/prefer-default-export': 0,
         semi: 0,
+        'react/jsx-props-no-spreading': 0,
     },
 }
