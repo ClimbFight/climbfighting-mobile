@@ -11,7 +11,8 @@ import Loading from './screens/Loading'
 import AuthNavigator from './screens/auth/AuthNavigator'
 import HomeNavigator from './screens/home/HomeNavigator'
 import theme from './styles/theme'
-import light_theme from './styles/light_theme'
+import lightTheme from './styles/light_theme'
+import {RootProvider} from './context'
 
 const AppNavigator = createSwitchNavigator(
     {
@@ -27,14 +28,16 @@ const AppNavigator = createSwitchNavigator(
 const App = () => {
     const AppContainer = createAppContainer(AppNavigator)
 
-    const lightTheme = {
+    const light = {
         ...theme,
-        ...light_theme,
+        ...lightTheme,
     }
 
     return (
-        <ThemeProvider theme={lightTheme}>
-            <AppContainer />
+        <ThemeProvider theme={light}>
+            <RootProvider>
+                <AppContainer />
+            </RootProvider>
         </ThemeProvider>
     )
 }

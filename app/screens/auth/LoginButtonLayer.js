@@ -30,12 +30,12 @@ const LoginButtonLayer = ({isShow, closeFn, navigation}) => {
 
                 <LoginHelpContainer>
                     <ExtraInfoButton
-                        to="extraInfo"
+                        to="joinEmail"
                         text="이메일 회원가입"
                         navigation={navigation}
                     />
                     <ExtraInfoButton
-                        to="extraInfo"
+                        to="agreement"
                         text="ID/PW 찾기"
                         navigation={navigation}
                     />

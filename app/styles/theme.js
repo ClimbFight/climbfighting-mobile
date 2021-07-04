@@ -75,6 +75,13 @@ const verticalInterval = {
     xxxxl: addPx(32),
 }
 
+const fontWeight = {
+    light: 300,
+    normal: 500,
+    bold: 700,
+    extraBold: 800,
+}
+
 const theme = {
     fontSizes,
     fonts,
@@ -82,6 +89,10 @@ const theme = {
     margins,
     interval,
     verticalInterval,
+    fontWeight,
 }
 
+/**
+ * @returns {ReturnType<theme>} theme
+ */
 export default theme
