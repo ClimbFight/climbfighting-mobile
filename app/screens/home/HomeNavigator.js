@@ -1,33 +1,52 @@
-/**
- * @flow
- */
-
 import React from 'react'
-import {View, Text, StyleSheet} from 'react-native'
-import {createMaterialTopTabNavigator} from 'react-navigation-tabs'
+import {Image} from 'react-native'
+import {createBottomTabNavigator} from 'react-navigation-tabs'
 
-import Diary from './Diary'
-import Equip from './Equip'
+import Home from './Home'
+import Write from './Write'
+import MyPage from './MyPage'
 
-const HomeNavigator = createMaterialTopTabNavigator(
+import HomeBtn from './images/home-btn.png'
+import HomeBtnActive from './images/home-btn-active.png'
+import WriteBtn from './images/write-btn.png'
+import WriteBtnActive from './images/write-btn-active.png'
+import mypageBtn from './images/mypage-btn.png'
+import mypageBtnActive from './images/mypage-btn-active.png'
+
+const Diary = createBottomTabNavigator(
     {
-        diary: {
-            screen: Diary,
-            navigationOptions: {
-                title: '등산 일기',
-            },
+        home: {
+            screen: Home,
         },
-
-        equip: {
-            screen: Equip,
-            navigationOptions: {
-                title: '등산은 장비빨',
-            },
+        write: {
+            screen: Write,
+        },
+        mypage: {
+            screen: MyPage,
         },
     },
     {
-        initialRouteName: 'diary',
+        defaultNavigationOptions: ({navigation}) => ({
+            tabBarIcon: ({focused, horizontal, tintIcon}) => {
+                const {routeName} = navigation.state
+
+                let imgSrc
+                if (routeName === 'home') {
+                    imgSrc = focused ? HomeBtnActive : HomeBtn
+                } else if (routeName === 'write') {
+                    imgSrc = focused ? WriteBtnActive : WriteBtn
+                } else {
+                    imgSrc = focused ? mypageBtnActive : mypageBtn
+                }
+
+                return <Image source={imgSrc} />
+            },
+        }),
+
+        tabBarOptions: {
+            showLabel: false,
+        },
     },
 )
 
-export default HomeNavigator
+export default Diary
