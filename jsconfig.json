@@ -2,7 +2,10 @@
     "compilerOptions": {
         "baseUrl": "app",
         "paths": {
-            "$/*": ["*"]
+            "$/*": ["*"],
+            "$context": ["context/index.js"],
+            "$utils/": ["utils/"],
+            "$screens/*": ["screens/*"]
         }
     },
     "exclude": ["node_modules"]

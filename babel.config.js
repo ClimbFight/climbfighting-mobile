@@ -8,6 +8,18 @@ module.exports = {
                 rootPathPrefix: '$',
                 rootPathSuffix: 'app',
             },
+            {
+                rootPathPrefix: '$context',
+                rootPathSuffix: 'app/context/index.js',
+            },
+            {
+                rootPathPrefix: '$utils',
+                rootPathSuffix: 'app/utils',
+            },
+            {
+                rootPathPrefix: '$screens',
+                rootPathSuffix: 'app/screens',
+            },
         ],
     ],
 }
