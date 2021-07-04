@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import FooterButton from './components/FooterButton'
 import bdImg from './images/start_img.jpg'
@@ -38,21 +38,16 @@ const SubTitleText = styled.Text`
 const Login = ({navigation}) => {
     const [isShow, setIsShow] = useState(false)
 
-    // const buttonRef = useRef()
-
-    // const measureButton = (x, y, width, height, pageX, pageY) => {
-    //     return width > 0 ? setBtnWidth(`${width - 64}px`) : setBtnWidth('100%')
-    // }
-
-    // useEffect(() => {
-    //     if (isMounted) {
-    //         buttonRef.current.measure(measureButton)
-    //     }
-    // }, [isMounted])
-
     const openLoginLayer = () => setIsShow(!isShow)
 
     const closeFn = () => setIsShow(false)
+
+    useEffect(() => {
+        const willBlurSubscription = navigation.addListener('willBlur', () => {
+            closeFn()
+        })
+        return () => willBlurSubscription.remove()
+    }, [])
 
     return (
         <Container>
