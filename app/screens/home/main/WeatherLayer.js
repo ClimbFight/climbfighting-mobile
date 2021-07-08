@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Sunny from './images/weather-sunny-icon.png'
-import Cloudy from './images/weather-cloudy-icon.png'
-import Thunder from './images/weather-thunder-icon.png'
-import Windy from './images/weather-windy-icon.png'
-import Foggy from './images/weather-foggy-icon.png'
-import Snowy from './images/weather-snowy-icon.png'
+import Sunny from '../images/weather-sunny-icon.png'
+import Cloudy from '../images/weather-cloudy-icon.png'
+import Thunder from '../images/weather-thunder-icon.png'
+import Windy from '../images/weather-windy-icon.png'
+import Foggy from '../images/weather-foggy-icon.png'
+import Snowy from '../images/weather-snowy-icon.png'
 
-import Search from './images/search-btn.png'
+import Search from '../images/search-btn.png'
 
 const Container = styled.View`
     width: 100%;
