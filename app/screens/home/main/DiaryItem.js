@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import ActiveMark from './images/bookmark-active.png'
-import InactiveMark from './images/bookmark-inactive.png'
-import LocationIcon from './images/location-icon.png'
+import ActiveMark from '../images/bookmark-active.png'
+import InactiveMark from '../images/bookmark-inactive.png'
+import LocationIcon from '../images/location-icon.png'
 
 const Container = styled.ScrollView`
     width: 100%;

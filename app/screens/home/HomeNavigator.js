@@ -2,9 +2,9 @@ import React from 'react'
 import {Image} from 'react-native'
 import {createBottomTabNavigator} from 'react-navigation-tabs'
 
-import Home from './Home'
+import Home from './main/Home'
 import Write from './Write'
-import MyPage from './MyPage'
+import MyPage from './mypage/MyPage'
 
 import HomeBtn from './images/home-btn.png'
 import HomeBtnActive from './images/home-btn-active.png'
