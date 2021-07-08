@@ -4,7 +4,7 @@ import {createBottomTabNavigator} from 'react-navigation-tabs'
 
 import Home from './main/Home'
 import Write from './Write'
-import MyPage from './mypage/MyPage'
+import MyPageNavigation from './mypage/MyPage'
 
 import HomeBtn from './images/home-btn.png'
 import HomeBtnActive from './images/home-btn-active.png'
@@ -22,7 +22,7 @@ const Diary = createBottomTabNavigator(
             screen: Write,
         },
         mypage: {
-            screen: MyPage,
+            screen: MyPageNavigation,
         },
     },
     {

@@ -10,6 +10,7 @@ import {ThemeProvider} from 'styled-components'
 import Loading from './screens/Loading'
 import AuthNavigator from './screens/auth/AuthNavigator'
 import HomeNavigator from './screens/home/HomeNavigator'
+import MyPageNavigation from './screens/home/mypage/MyPage'
 import theme from './styles/theme'
 import lightTheme from './styles/light_theme'
 import {RootProvider} from './context'
@@ -19,6 +20,7 @@ const AppNavigator = createSwitchNavigator(
         loading: Loading,
         auth: AuthNavigator,
         home: HomeNavigator,
+        myPage: MyPageNavigation,
     },
     {
         initialRouteName: 'loading',
